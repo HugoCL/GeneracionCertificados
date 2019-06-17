@@ -12,5 +12,10 @@ namespace generacionCertificados
         private DateTime fechaCreacion;
         private DateTime vigencia;
         private int vigenciaEstablecida;
+
+        public PersonaUniversitaria DatosSolicitante { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime Vigencia { get; set; }
+        public int VigenciaEstablecida { get; set; }
     }
 }

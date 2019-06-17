@@ -8,8 +8,11 @@ namespace generacionCertificados
 {
     class Estudiante {
         private string numMatricula;
-        private Carrera carrera;
+        private Carrera carreraEstudiante;
         private Boolean isEstudiantePosgrado;
 
+        public string NumMatricula { get; set; }
+        public Carrera CarreraEstudiante { get; set; }
+        public Boolean IsEstudiantePosgrado { get; set; }
     }
 }

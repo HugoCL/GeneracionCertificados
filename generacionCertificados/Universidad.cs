@@ -10,8 +10,13 @@ namespace generacionCertificados
     class Universidad
     {
         private string nombreUniversidad;
-        private ArrayList estudiantes;
+        private ArrayList estudiantes; 
         private ArrayList funcionarios;
         private ArrayList carreras;
+
+        public string NombreUniversidad { get; set; }
+        public ArrayList Estudiantes { get; set; }
+        public ArrayList Funcionarios { get; set; }
+        public ArrayList Carreras { get; set; }
     }
 }
