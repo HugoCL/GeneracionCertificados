@@ -9,14 +9,31 @@ namespace generacionCertificados
 {
     class Universidad
     {
-        private string nombreUniversidad;
-        private ArrayList estudiantes; 
-        private ArrayList funcionarios;
-        private ArrayList carreras;
+
+        public Universidad()
+        {
+            Carreras = new List<Carrera>();
+            Estudiantes = new List<Estudiante>();
+            Funcionarios = new List<Funcionario>();
+        }
 
         public string NombreUniversidad { get; set; }
-        public ArrayList Estudiantes { get; set; }
-        public ArrayList Funcionarios { get; set; }
-        public ArrayList Carreras { get; set; }
+        public List<Estudiante> Estudiantes { get; set; }
+        public List<Funcionario> Funcionarios { get; set; }
+        public List<Carrera> Carreras { get; set; }
+
+
+        public void listarCarreras()
+        {
+            Console.WriteLine("Estas son las carreras disponibles");
+            int contCarre = 1;
+            foreach (Carrera carreraActual in Carreras)
+            {
+                Console.WriteLine("[" + contCarre + "] " + carreraActual.NombreCarrera);
+                contCarre++;
+            }
+            if (contCarre == 1) { Console.WriteLine("No hay carreras ingresadas"); }
+        }
+        
     }
 }

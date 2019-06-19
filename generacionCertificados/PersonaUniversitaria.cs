@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
-    class PersonaUniversitaria {
-        private string nombresPersona;
-        private string apellidosPersona;
-        private string numeroTelefono;
-        private string direccionPersona;
+    abstract class PersonaUniversitaria {
+        
+        public string NombrePersona { get; set; }
+        public string ApellidoPersona { get; set; }
+        public string NumeroTelefono { get; set; }
+        public string DireccionPersona { get; set; }
+
+        public abstract void ListarInfo(int cantidadInfo);
     }
 }

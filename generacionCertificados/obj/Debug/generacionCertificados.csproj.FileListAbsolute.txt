@@ -1,0 +1,7 @@
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\obj\Debug\generacionCertificados.csprojAssemblyReference.cache
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\obj\Debug\generacionCertificados.csproj.CoreCompileInputs.cache
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\bin\Debug\generacionCertificados.exe.config
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\bin\Debug\generacionCertificados.exe
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\bin\Debug\generacionCertificados.pdb
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\obj\Debug\generacionCertificados.exe
+C:\Users\hugoc\Documents\GitHub\GeneracionCertificados\generacionCertificados\obj\Debug\generacionCertificados.pdb
