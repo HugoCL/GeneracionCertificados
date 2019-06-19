@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
-    class Certificado {
+    abstract class Certificado {
 
         private PersonaUniversitaria datosSolicitante;
+        private string impuestoCertificado;
         private DateTime fechaCreacion;
         private DateTime vigencia;
         private int vigenciaEstablecida;

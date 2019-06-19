@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
-    class CertificadoProfesor
+    class CertificadoProfesor : Certificado
     {
     }
 }

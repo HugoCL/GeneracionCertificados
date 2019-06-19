@@ -13,6 +13,12 @@ namespace generacionCertificados
         public string NumeroTelefono { get; set; }
         public string DireccionPersona { get; set; }
 
+
+
         public abstract void ListarInfo(int cantidadInfo);
+
+        public abstract void crearPersonaUniversitaria(Universidad universidad);
+
+        public abstract void menuCertificados();
     }
 }

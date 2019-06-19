@@ -18,5 +18,15 @@ namespace generacionCertificados
         {
             throw new NotImplementedException();
         }
+
+        public override void crearPersonaUniversitaria(Universidad universidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void menuCertificados()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
