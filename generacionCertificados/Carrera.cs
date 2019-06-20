@@ -12,7 +12,7 @@ namespace generacionCertificados
         public string NombreCarrera { get; set; }
         public string CodigoCarrera { get; set; }
 
-        public void crearCarrera()
+        public void CrearCarrera()
         {
             Console.WriteLine("\nSe ingresará una carrera");
             Console.WriteLine("Ingrese el nombre de la carrera");

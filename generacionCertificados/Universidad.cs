@@ -23,7 +23,7 @@ namespace generacionCertificados
         public List<Carrera> Carreras { get; set; }
 
 
-        public void listarCarreras()
+        public void ListarCarreras()
         {
             Console.WriteLine("Estas son las carreras disponibles");
             int contCarre = 1;

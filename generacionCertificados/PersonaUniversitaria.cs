@@ -15,10 +15,10 @@ namespace generacionCertificados
 
 
 
-        public abstract void ListarInfo(int cantidadInfo);
+        public abstract void ListarInfo(string cantidadInfo);
 
-        public abstract void crearPersonaUniversitaria(Universidad universidad);
+        public abstract void CrearPersonaUniversitaria(Universidad universidad);
 
-        public abstract void menuCertificados();
+        public abstract void ListarCertificados();
     }
 }

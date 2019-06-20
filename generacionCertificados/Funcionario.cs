@@ -14,17 +14,22 @@ namespace generacionCertificados
         public string Perfil { get; set; }
         
 
-        public override void ListarInfo(int cantidadInfo)
+        public override void ListarInfo(string cantidadInfo)
         {
             throw new NotImplementedException();
         }
 
-        public override void crearPersonaUniversitaria(Universidad universidad)
+        public override void CrearPersonaUniversitaria(Universidad universidad)
         {
             throw new NotImplementedException();
         }
 
-        public override void menuCertificados()
+        public override void ListarCertificados()
+        {
+            throw new NotImplementedException();
+        }
+
+        public  void MenuCertificados(PersonaUniversitaria datos)
         {
             throw new NotImplementedException();
         }
