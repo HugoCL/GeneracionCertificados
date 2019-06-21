@@ -11,18 +11,20 @@ namespace generacionCertificados
         public string NumMatricula { get; set; }
         public Carrera CarreraEstudiante { get; set; }
         public Boolean IsEstudiantePosgrado { get; set; }
-        public List<Certificado> Certificados { get; set; }
+        public List<Certificado> CertificadosAlumno { get; set; }
 
         public Estudiante()
         {
-            Certificados = new List<Certificado>();
+            CertificadosAlumno = new List<Certificado>();
         }
 
-        public override void ListarInfo(string cantidadInfo)
+        public override void ListarInfo(string cantidadInfo, int idEstudiante)
         {
+            Console.Out.WriteLine("**********************************************************");
+            Console.Out.WriteLine("\nALUMNO NUMERO " + idEstudiante);
             if (cantidadInfo == "1")
             {
-                Console.WriteLine("\n Nombre completo: " + NombrePersona + " " + ApellidoPersona);
+                Console.WriteLine("Nombre completo: " + NombrePersona + " " + ApellidoPersona);
                 Console.WriteLine("Carrera: " + CarreraEstudiante.NombreCarrera);
                 Console.WriteLine("Numero de matricula: " + NumMatricula);
             }
@@ -80,9 +82,8 @@ namespace generacionCertificados
             string direcc = Console.ReadLine();
             Console.WriteLine("Ingrese el numero de telefono del estudiante");
             string telef = Console.ReadLine();
-            Console.WriteLine("Ingrese numero de matricula");
-            string numMatri = Console.ReadLine();
             Console.WriteLine("Seleccione el numero correspondiente a la carrera del estudiante");
+            Console.Out.WriteLine("Ingresar un caracter no numerico lanzara una excepcion");
             int contOp = 1;
             foreach (Carrera carreraActual in universidad.Carreras)
             {
@@ -90,13 +91,29 @@ namespace generacionCertificados
                 contOp++;
             }
 
-            int opCarrera = Convert.ToInt32(Console.ReadLine());
-            Carrera carreraElegida = universidad.Carreras[opCarrera - 1];
+            try
+            {
+                int opCarrera = Convert.ToInt32(Console.ReadLine());
+                Carrera carreraElegida = universidad.Carreras[opCarrera - 1];
+                CarreraEstudiante = carreraElegida;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("Se ingresó una opción no valida. Revise la entrada y reinicie el programa");
+                Console.WriteLine(e);
+                throw;
+            }
+
+            string numMatri = DateTime.Now.Year.ToString() + CarreraEstudiante.CodigoCarrera +
+                              universidad.Estudiantes.Count.ToString();
             Estudiante estudiante = new Estudiante();
             NombrePersona = nombres;
             ApellidoPersona = apellidos;
             NumMatricula = numMatri;
-            CarreraEstudiante = carreraElegida;
+            Console.Out.WriteLine("********************************************");
+            Console.Out.WriteLine("¡El perfil fue creado correctamente!");
+            Console.Out.WriteLine("Tu numero de matricula es: "+numMatri);
+            Console.Out.WriteLine("********************************************");
             DireccionPersona = direcc;
             NumeroTelefono = telef;
             IsEstudiantePosgrado = boolPrePos;
@@ -104,13 +121,13 @@ namespace generacionCertificados
 
         public override void ListarCertificados()
         {
-            if (Certificados.Count == 0) {
+            if (CertificadosAlumno.Count == 0) {
                 Console.Out.WriteLine("Este alumno no posee certificados creados :(");
             }
             else
             {
                 int numCertificados = 1;
-                foreach (CertificadoEstudiante certificado in Certificados)
+                foreach (CertificadoEstudiante certificado in CertificadosAlumno)
                 {
                     Console.Out.WriteLine("CERTIFICADO NUMERO "+numCertificados);
                     Console.Out.WriteLine("***********************************************************************");
@@ -195,8 +212,8 @@ namespace generacionCertificados
                         Console.Out.WriteLine("Porque periodo desea realizar la emision del certificado");
                         Console.Out.WriteLine("Por ejemplo: 2019-1");
                         string periodo = Console.ReadLine();
-                        certificado1.CrearCertificado(datos, 1, periodo);
-                        Certificados.Add(certificado1);
+                        certificado1.CrearCertificado(datos, 1, periodo, "No aplica");
+                        CertificadosAlumno.Add(certificado1);
                         break;
                     case "2":
                         CertificadoEstudiante certificado2 = new CertificadoEstudiante();
@@ -205,8 +222,10 @@ namespace generacionCertificados
                         if (periodoCert.Equals("Otoño", StringComparison.OrdinalIgnoreCase) ||
                             periodoCert.Equals("Verano", StringComparison.OrdinalIgnoreCase))
                         {
-                            certificado2.CrearCertificado(datos, 2, periodoCert);
-                            Certificados.Add(certificado2);
+                            Console.Out.WriteLine("Ingrese el destinatario del certificado");
+                            string dest = Console.ReadLine();
+                            certificado2.CrearCertificado(datos, 2, periodoCert, dest);
+                            CertificadosAlumno.Add(certificado2);
                         }
                         else
                         {
@@ -220,8 +239,8 @@ namespace generacionCertificados
                         if (periodoCert3.Equals("Otoño", StringComparison.OrdinalIgnoreCase) ||
                             periodoCert3.Equals("Verano", StringComparison.OrdinalIgnoreCase))
                         {
-                            certificado3.CrearCertificado(datos, 2, periodoCert3);
-                            Certificados.Add(certificado3);
+                            certificado3.CrearCertificado(datos, 2, periodoCert3, "No aplica");
+                            CertificadosAlumno.Add(certificado3);
                         }
                         else
                         {
@@ -235,8 +254,8 @@ namespace generacionCertificados
                         if (periodoCert4.Equals("Otoño", StringComparison.OrdinalIgnoreCase) ||
                             periodoCert4.Equals("Verano", StringComparison.OrdinalIgnoreCase))
                         {
-                            certificado4.CrearCertificado(datos, 2, periodoCert4);
-                            Certificados.Add(certificado4);
+                            certificado4.CrearCertificado(datos, 2, periodoCert4, "No aplica");
+                            CertificadosAlumno.Add(certificado4);
                         }
                         else
                         {
@@ -245,15 +264,15 @@ namespace generacionCertificados
                         break;
                     case "5":
                         CertificadoEstudiante certificado5 = new CertificadoEstudiante();
-                        certificado5.CrearCertificado(datos, 5, "No aplica");
-                        Certificados.Add(certificado5);
+                        certificado5.CrearCertificado(datos, 5, "No aplica", "No aplica");
+                        CertificadosAlumno.Add(certificado5);
                         break;
                     case "6":
                         if (IsEstudiantePosgrado == true)
                         {
                             CertificadoEstudiante certificado6 = new CertificadoEstudiante();
-                            certificado6.CrearCertificado(datos, 6, "No aplica");
-                            Certificados.Add(certificado6);
+                            certificado6.CrearCertificado(datos, 6, "No aplica", "No aplica");
+                            CertificadosAlumno.Add(certificado6);
                         }
                         else if (IsEstudiantePosgrado == false)
                         {
@@ -264,8 +283,8 @@ namespace generacionCertificados
                         if (IsEstudiantePosgrado == true)
                         {
                             CertificadoEstudiante certificado7 = new CertificadoEstudiante();
-                            certificado7.CrearCertificado(datos, 7, "No aplica");
-                            Certificados.Add(certificado7);
+                            certificado7.CrearCertificado(datos, 7, "No aplica", "No aplica");
+                            CertificadosAlumno.Add(certificado7);
                         }
                         else if (IsEstudiantePosgrado == false)
                         {

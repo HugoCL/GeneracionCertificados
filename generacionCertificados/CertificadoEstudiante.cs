@@ -10,7 +10,7 @@ namespace generacionCertificados
 {
     class CertificadoEstudiante : Certificado
     {
-        public void CrearCertificado(Estudiante datos, int idCertificado, string infoAuxiliar)
+        public void CrearCertificado(Estudiante datos, int idCertificado, string infoAuxiliar, string infoAuxiliar2)
         {
             Console.Out.WriteLine("***********************************************************************");
             Console.Out.WriteLine("                       Universidad de Talca");
@@ -27,6 +27,7 @@ namespace generacionCertificados
             {
                 Console.Out.Write("Asignacion Familiar");
                 Console.Out.Write("\n                         Periodo de " + infoAuxiliar);
+                Console.Out.WriteLine("\nEste certificado esta destinado exclusivamente a: " + infoAuxiliar2);
                 ImpuestoCertificado = "$0";
                 VigenciaEstablecida = 30;
                 tipoCertificado = 2;

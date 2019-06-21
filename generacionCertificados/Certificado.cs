@@ -21,6 +21,9 @@ namespace generacionCertificados
         public string ImpuestoCertificado { get; set; }
 
         public string CodigoVerificacion { get; set; }
+        public string Destinatario { get; set; }
+
+        public string Sueldo { get; set; }
 
         
     }

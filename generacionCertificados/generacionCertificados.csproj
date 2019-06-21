@@ -46,7 +46,7 @@
     <Compile Include="Carrera.cs" />
     <Compile Include="Certificado.cs" />
     <Compile Include="CertificadoEstudiante.cs" />
-    <Compile Include="CertificadoProfesor.cs" />
+    <Compile Include="CertificadoFuncionario.cs" />
     <Compile Include="Estudiante.cs" />
     <Compile Include="PersonaUniversitaria.cs" />
     <Compile Include="Funcionario.cs" />
