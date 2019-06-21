@@ -13,12 +13,13 @@ namespace generacionCertificados
             Console.Out.WriteLine("Bienvenido al portal de la "+universidad.NombreUniversidad);
             do
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("\n*************************************************");
                 Console.WriteLine("Menu del generador de certificados:");
                 Console.WriteLine("[1] Ingresar carrera (LISTO)");
                 Console.WriteLine("[2] Ingresar alumno (LISTO)");
                 Console.WriteLine("[3] Ingresar funcionario (LISTO)");
-                Console.WriteLine("[4] Emitir certificado (LISTO?)");
+                Console.WriteLine("[4] Emitir certificado (LISTO, pendiente de confirmar)");
                 Console.WriteLine("[5] Listar carreras (LISTO)");
                 Console.WriteLine("[6] Listar alumnos (LISTO)");
                 Console.WriteLine("[7] Listar funcionarios (LISTO)");
@@ -56,6 +57,7 @@ namespace generacionCertificados
                         Console.WriteLine("Se ingreso al sistema de creacion de certificados");
                         Console.WriteLine("Eres alumno[1] o funcionario[2]?");
                         string opPers = Console.ReadLine();
+                        int persEncon = 0;
                         if (opPers == "1")
                         {
                             Console.WriteLine("Ingresa tu numero de matricula a continuacion para iniciar sesion");
@@ -65,7 +67,7 @@ namespace generacionCertificados
                                 if (estudiante.NumMatricula.Equals(numMa))
                                 {
                                     estudiante.MenuCertificados(estudiante);
-
+                                    persEncon = 1;
                                 }
                             }
                         }
@@ -78,8 +80,14 @@ namespace generacionCertificados
                                 if (funcionarioActual.RutFuncionario.Equals(rutFun))
                                 {
                                     funcionarioActual.MenuCertificados(funcionarioActual);
+                                    persEncon = 1;
                                 }
                             }
+                        }
+
+                        if (persEncon == 0)
+                        {
+                            Console.Out.WriteLine("No se encontró ese usuario :/");
                         }
                         break;
                     case "5":
@@ -132,8 +140,9 @@ namespace generacionCertificados
                         }
                         break;
                     case "8":
+                        // FALTA IMPLEMENTAR PARA FUNCIONARIOS
                         Console.WriteLine("Se ingreso al sistema de listado de certificado");
-                        Console.WriteLine("Eres alumno[1] o funcionario[2]?");
+                        Console.WriteLine("¿Se listaran certificados de un alumno[1] o de funcionario[2]?");
                         string opPersC = Console.ReadLine();
                         if (opPersC == "1")
                         {
@@ -146,6 +155,71 @@ namespace generacionCertificados
                                     estudiante.ListarCertificados();
                                 }
                             }
+                        }
+                        break;
+                    case "9":
+                        Console.Out.WriteLine("Se ingresó al sistema de editado de datos");
+                        Console.Out.WriteLine("¿A que tipo de persona se le editarán sus datos? [1] Alumno o [2] Funcionarios");
+                        string opEdit = Console.ReadLine();
+                        int exitEdiPers = 0;
+                        if (opEdit == "1")
+                        {
+                            Console.Out.WriteLine("Ingresa tu numero de matricula a continuacion para inicar sesion");
+                            string numMatri = Console.ReadLine();
+                            foreach (Estudiante estudianteEdi in universidad.Estudiantes)
+                            {
+                                if (estudianteEdi.NumMatricula.Equals(numMatri))
+                                {
+                                    Estudiante estudianteEdicion = estudianteEdi;
+                                    exitEdiPers = 1;
+                                }
+                            }
+                        }
+                        else if (opEdit == "2")
+                        {
+                            Console.Out.WriteLine("Ingresa tu RUT a continuacion para iniciar sesion");
+                            string RutFun = Console.ReadLine();
+                            foreach (Funcionario funicionarioEdi in universidad.Funcionarios)
+                            {
+                                if (funicionarioEdi.RutFuncionario.Equals(RutFun))
+                                {
+                                    Funcionario funcionarioEdicion = funicionarioEdi;
+                                    exitEdiPers = 2;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.Out.WriteLine("Se ingresó una opcion no valida :(");
+                        }
+                        if (exitEdiPers == 1 || exitEdiPers == 2)
+                        {
+                            Console.Out.WriteLine("¿Que dato desea modificar?");
+                            Console.Out.WriteLine("[1] Nombres");
+                            Console.Out.WriteLine("[2] Apellidos");
+                            Console.Out.WriteLine("[3] Direccion");
+                            Console.Out.WriteLine("[4] Numero de telefono");
+                            if (exitEdiPers == 1)
+                            {
+                                Console.Out.WriteLine("[5] Carrera");
+                                Console.Out.WriteLine("[6] Numero de matricula");
+                                Console.Out.WriteLine("[7] Pregrado o postgrado");
+                                Console.Out.WriteLine("Ingrese su opcion");
+                                string opEdicion = Console.ReadLine();
+                                
+                            }
+                            else if (exitEdiPers == 2)
+                            {
+                                Console.Out.WriteLine("[5] Departamento");
+                                Console.Out.WriteLine("[6] RUT");
+                                Console.Out.WriteLine("[7] Tipo de contrato");
+                                Console.Out.WriteLine("[8] Perfil");
+                                Console.Out.WriteLine("[9] Sueldo");
+                            }
+                        }
+                        else if (exitEdiPers == 0)
+                        {
+                            Console.Out.WriteLine("No se encontró ese usuario :/");
                         }
                         break;
                     case "10":
@@ -168,6 +242,29 @@ namespace generacionCertificados
                                 foreach (Estudiante estudiante in universidad.Estudiantes)
                                 {
                                     foreach (Certificado certificado in estudiante.CertificadosAlumno)
+                                    {
+                                        if (certificado.CodigoVerificacion.Equals(codigo))
+                                        {
+                                            Console.Out.WriteLine("**********************************");
+                                            Console.Out.WriteLine("¡Certificado entontrado!");
+                                            if (DateTime.Compare(fecha, certificado.Vigencia) >= 0)
+                                            {
+                                                Console.Out.WriteLine("El certificado esta vencido");
+                                                Console.Out.WriteLine("**********************************");
+                                                exitoVal = 1;
+                                            }
+                                            else
+                                            {
+                                                Console.Out.WriteLine("El certificado es valido");
+                                                Console.Out.WriteLine("**********************************");
+                                                exitoVal = 1;
+                                            }
+                                        }
+                                    }
+                                }
+                                foreach (Funcionario funcionarioActual in universidad.Funcionarios)
+                                {
+                                    foreach (Certificado certificado in funcionarioActual.CertificadosFuncionario)
                                     {
                                         if (certificado.CodigoVerificacion.Equals(codigo))
                                         {
@@ -212,6 +309,29 @@ namespace generacionCertificados
                             foreach (Estudiante estudiante in universidad.Estudiantes)
                             {
                                 foreach (Certificado certificado in estudiante.CertificadosAlumno)
+                                {
+                                    if (certificado.CodigoVerificacion.Equals(codigo))
+                                    {
+                                        Console.Out.WriteLine("**********************************");
+                                        Console.Out.WriteLine("¡Certificado entontrado!");
+                                        if (DateTime.Compare(DateTime.Now, certificado.Vigencia) >= 0)
+                                        {
+                                            Console.Out.WriteLine("El certificado esta vencido");
+                                            Console.Out.WriteLine("**********************************");
+                                            exitoVal = 1;
+                                        }
+                                        else
+                                        {
+                                            Console.Out.WriteLine("El certificado es valido");
+                                            Console.Out.WriteLine("**********************************");
+                                            exitoVal = 1;
+                                        }
+                                    }
+                                }
+                            }
+                            foreach (Funcionario funcionarioCert in universidad.Funcionarios)
+                            {
+                                foreach (Certificado certificado in funcionarioCert.CertificadosFuncionario)
                                 {
                                     if (certificado.CodigoVerificacion.Equals(codigo))
                                     {
