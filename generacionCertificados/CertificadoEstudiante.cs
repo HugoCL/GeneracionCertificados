@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
@@ -20,18 +14,18 @@ namespace generacionCertificados
                 Console.Out.Write("Año Curso - Periodo "+infoAuxiliar);
                 ImpuestoCertificado = "$4000";
                 VigenciaEstablecida = 15;
-                tipoCertificado = 1;
-                periodoCertificado = infoAuxiliar;
+                TipoCertificado = 1;
+                PeriodoCertificado = infoAuxiliar;
             }
             else if (idCertificado == 2)
             {
                 Console.Out.Write("Asignacion Familiar");
-                Console.Out.Write("\n                         Periodo de " + infoAuxiliar);
+                Console.Out.Write("\n                         Periodo de " + infoAuxiliar+"\n");
                 Console.Out.WriteLine("\nEste certificado esta destinado exclusivamente a: " + infoAuxiliar2);
                 ImpuestoCertificado = "$0";
                 VigenciaEstablecida = 30;
-                tipoCertificado = 2;
-                periodoCertificado = infoAuxiliar;
+                TipoCertificado = 2;
+                PeriodoCertificado = infoAuxiliar;
             }
             else if (idCertificado == 3)
             {
@@ -39,8 +33,8 @@ namespace generacionCertificados
                 Console.Out.Write("\n                         Periodo de " + infoAuxiliar);
                 ImpuestoCertificado = "$0";
                 VigenciaEstablecida = 20;
-                tipoCertificado = 3;
-                periodoCertificado = infoAuxiliar;
+                TipoCertificado = 3;
+                PeriodoCertificado = infoAuxiliar;
             }
             else if (idCertificado == 4)
             {
@@ -48,29 +42,29 @@ namespace generacionCertificados
                 Console.Out.Write("\n                         Periodo de " + infoAuxiliar);
                 ImpuestoCertificado = "$0";
                 VigenciaEstablecida = 20;
-                tipoCertificado = 4;
-                periodoCertificado = infoAuxiliar;
+                TipoCertificado = 4;
+                PeriodoCertificado = infoAuxiliar;
             }
             else if (idCertificado == 5)
             {
                 Console.Out.Write("Informe curricular");
                 ImpuestoCertificado = "$5000";
                 VigenciaEstablecida = 25;
-                tipoCertificado = 5;
+                TipoCertificado = 5;
             }
             else if (idCertificado == 6)
             {
                 Console.Out.Write("Informe curricular de postgrado");
                 ImpuestoCertificado = "$10000";
                 VigenciaEstablecida = 35;
-                tipoCertificado = 6;
+                TipoCertificado = 6;
             }
             else if (idCertificado == 7)
             {
                 Console.Out.Write("Alumno regular de posgrado");
                 ImpuestoCertificado = "$10000";
                 VigenciaEstablecida = 30;
-                tipoCertificado = 7;
+                TipoCertificado = 7;
             }
             else
             {

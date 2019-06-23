@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace generacionCertificados
 {
@@ -20,5 +16,7 @@ namespace generacionCertificados
         public abstract void CrearPersonaUniversitaria(Universidad universidad);
 
         public abstract void ListarCertificados();
+
+        public abstract void CambiarDatos(Universidad universidad);
     }
 }

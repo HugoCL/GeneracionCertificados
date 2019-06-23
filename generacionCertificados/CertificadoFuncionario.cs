@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
@@ -19,7 +15,7 @@ namespace generacionCertificados
                 Console.Out.WriteLine("\nEste certificado esta destinado exclusivamente a: "+infoAuxiliar);
                 ImpuestoCertificado = "$10000";
                 VigenciaEstablecida = 30;
-                tipoCertificado = 8;
+                TipoCertificado = 8;
                 Destinatario = infoAuxiliar;
             }
             else if (idCertificado == 9)
@@ -29,7 +25,7 @@ namespace generacionCertificados
                 Console.Out.WriteLine("Pago retenido (10%): "+(datos.Sueldo*0.10));
                 ImpuestoCertificado = "$30000";
                 VigenciaEstablecida = 30;
-                tipoCertificado = 9;
+                TipoCertificado = 9;
                 Sueldo = infoAuxiliar;
             }
             Console.Out.WriteLine("Nombre completo: " + datos.NombrePersona + " " + datos.ApellidoPersona);

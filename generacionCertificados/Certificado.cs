@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace generacionCertificados
 {
@@ -14,9 +10,9 @@ namespace generacionCertificados
         public DateTime Vigencia { get; set; }
         public int VigenciaEstablecida { get; set; }
 
-        public string periodoCertificado { get; set; }
+        public string PeriodoCertificado { get; set; }
 
-        public int tipoCertificado { get; set; }
+        public int TipoCertificado { get; set; }
 
         public string ImpuestoCertificado { get; set; }
 
