@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="generacionCertificados.Carrera">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Carrera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="generacionCertificados.Certificado">
+    <Position X="10.25" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAJAAAAAAEAAAAAEDAAACAAAAAAAAAQAAAQAA=</HashCode>
+      <FileName>Certificado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="generacionCertificados.CertificadoEstudiante">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>CertificadoEstudiante.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="generacionCertificados.CertificadoFuncionario">
+    <Position X="13" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>CertificadoFuncionario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="generacionCertificados.Estudiante">
+    <Position X="1.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACCgAAAAABAAAgQAAAQAAQAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Estudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CertificadosAlumno" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="generacionCertificados.Funcionario">
+    <Position X="4.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAACEAQAAAQAAQBAAAAEAAAAAQAAAQAA=</HashCode>
+      <FileName>Funcionario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CertificadosFuncionario" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="generacionCertificados.PersonaUniversitaria">
+    <Position X="3.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAkAAAAAAQAAAQAAQAAAAAAAAACAAAAAQIA=</HashCode>
+      <FileName>PersonaUniversitaria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="generacionCertificados.Universidad">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAQAIAAAACAAAA=</HashCode>
+      <FileName>Universidad.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Carreras" />
+      <Property Name="Estudiantes" />
+      <Property Name="Funcionarios" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

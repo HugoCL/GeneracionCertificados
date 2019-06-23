@@ -410,7 +410,7 @@ namespace generacionCertificados
                                         int exit = 0;
                                         do
                                         {
-                                            Console.WriteLine("Es un estudiante de pregrado? [S/N]");
+                                            Console.WriteLine("Alumno encontrado. Confirme eliminación [S/N]");
                                             confirm = Console.ReadLine();
                                             if (confirm.Equals("s", StringComparison.InvariantCultureIgnoreCase))
                                             {
@@ -454,7 +454,7 @@ namespace generacionCertificados
                                         int exit = 0;
                                         do
                                         {
-                                            Console.WriteLine("Es un estudiante de pregrado? [S/N]");
+                                            Console.WriteLine("Funcionario encontrado. Confirme eliminación [S/N]");
                                             confirm = Console.ReadLine();
                                             if (confirm.Equals("s", StringComparison.InvariantCultureIgnoreCase))
                                             {
